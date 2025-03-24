@@ -17,7 +17,7 @@ This project builds an end-to-end system for automatically classifying music by 
      - Implementing two baseline models (Random Forest and SVM) using scikit-learn.
   3. **Deep Learning Architectures:**  
      - One deep learning model (a simple CNN built with PyTorch and PyTorch Lightning) is implemented here.
-     - Another deep learning model (a modified EfficientNet-B3 that accepts single-channel mel-spectrogram inputs) is implemented here.
+     - One deep learning model (a modified EfficientNet-B3 that accepts single-channel mel-spectrogram inputs) is implemented here.
   4. **Validation & Evaluation:**  
      - Splitting the dataset into training and validation sets.
      - Reporting accuracy, loss, and confusion matrices.
