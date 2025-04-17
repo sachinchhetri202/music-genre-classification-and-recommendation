@@ -21,4 +21,19 @@ This project builds an end-to-end system for automatically classifying music by 
   4. **Validation & Evaluation:**  
      - Splitting the dataset into training and validation sets.
      - Reporting accuracy, loss, and confusion matrices.
+  5. **Hyperparameter Tuning & Final CNN**  
+     - Optuna‑driven search over learning rate, dropout, filter count, and batch size.  
+     - Full‑dataset retrain for **20 epochs** with **EarlyStopping** and a **TQDMProgressBar** for live progress.  
+     - Final test‑set performance: **62 % accuracy** | Macro‑F1 ≈ 0.59.  
+     - Saves best checkpoint at `notebooks/checkpoints/best_cnn.ckpt`.
+  6. **End‑to‑End Inference & Recommendation Demo**  
+     - **Preprocessing**: `preprocess_audio()` loads a raw `.au` file and converts it to a fixed‑size (1×128×128) Mel‑spectrogram tensor.  
+     - **Embedding extraction**: monkey‑patches `model.get_embedding()` to run the CNN’s conv‑blocks + global‑avg‑pool, returning a 1D feature vector.  
+     - **Recommendation**: `predict_and_recommend(sample_clip, k=5)` classifies the clip (via the loaded checkpoint) and computes cosine similarity against an embedding bank to pick the top‑5 closest tracks.  
+     - **Demo output**: prints the input filename, predicted genre, and displays a pandas DataFrame with columns `file`, `genre`, and `cosine_dist` for the recommended songs.  
 
+## How to run
+
+1. **Install dependencies**  
+   ```bash
+   pip install -r requirements.txt
