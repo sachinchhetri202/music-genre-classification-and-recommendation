@@ -1,4 +1,7 @@
 ﻿# music-genre-classification-and-recommendation
+
+https://www.canva.com/design/DAGlAnd3rKA/ex9TRD9362weA46tJfHbog/edit
+
 This project builds an end-to-end system for automatically classifying music by genre and recommending similar songs. Our approach uses both traditional machine learning models and deep learning architectures to tackle the problem.
 
 ## Project Overview
